@@ -1,0 +1,36 @@
+<div style="font-size: 13px;margin: 10px 5px">
+    <style type="text/css">
+    .yang{width:200px;float:left;}
+    </style>
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+        <input type='hidden' name='role_id' value="{$roleinfo.role_id}" />
+        <table border="1" width="100%" class="table_a" id="general-tab-tb">
+            <tr>
+                <td style='font-size:30px;' colspan='100'>当前分配权限的角色：{$roleinfo.role_name}</td>
+            </tr>
+            <foreach name='auth_infoA' item='v'>           
+            <tr>
+                <td><input type='checkbox' name='role_auth_ids[]' value='{$v.auth_id}'
+                    <in name="v['auth_id']" value="$roleinfo['role_auth_ids']">
+                    checked='checked'
+                    </in>
+                >{$v.auth_name}</td>
+                <td>
+                    <foreach name='auth_infoB' item='vv'>
+                    <if condition="$vv['auth_pid'] eq $v['auth_id']">
+                    <div class='yang'><input type='checkbox' name='role_auth_ids[]' value='{$vv.auth_id}'
+                        <in name="vv['auth_id']" value="$roleinfo['role_auth_ids']">
+                        checked='checked'
+                        </in>
+                    >{$vv.auth_name}</div>
+                    </if>
+                    </foreach>
+                </td>
+            </tr>
+            </foreach>
+            <tr>
+                <td colspan='100'><input type="submit" name='now_act' value="分配权限" /></td>
+            </tr>
+        </table>
+    </form>
+</div>

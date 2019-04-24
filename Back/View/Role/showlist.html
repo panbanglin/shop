@@ -1,0 +1,22 @@
+<div style="font-size: 13px; margin: 10px 5px;">
+    <table class="table_a" border="1" width="100%">
+        <tbody><tr style="font-weight: bold;">
+                <td>序号</td><td>名称</td>
+                <td>权限ids</td>
+                <td align="center" colspan='3'>操作</td>
+            </tr>
+            <foreach name='info' item='v'>
+            <tr id="product_{$v.goods_id}">
+                <td>{$v.role_id}</td>
+                <td><a href="#">{$v.role_name}</a></td>
+                <td>{$v.role_auth_ids}</td>
+
+                <td><a href="{:U('distribute',array('role_id'=>$v['role_id']))}" >分配权限</a></td>
+
+                <td><a href="" >修改</a></td>
+                <td><a href="javascript:;" >删除</a></td>
+            </tr>
+            </foreach>
+        </tbody>
+    </table>
+</div>

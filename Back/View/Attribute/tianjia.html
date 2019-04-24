@@ -1,0 +1,29 @@
+<div style="font-size: 13px;margin: 10px 5px">
+    <form action="__SELF__" method="post" enctype="multipart/form-data">
+        <table border="1" width="100%" class="table_a">
+            <tr><td>属性名称</td>
+                <td><input type="text" name="attr_name" /></td></tr>
+            <tr><td>所属类型</td>
+                <td><select name='type_id'>
+                        <option value='0'>-请选择-</option>
+                        <foreach name='typeinfo' item='v'>
+                        <option value='{$v.type_id}'>{$v.type_name}</option>
+                        </foreach>
+                    </select><span style='color:red;'>*</span>
+                </td></tr>
+            <tr><td>是否可选</td>
+                <td><input type="radio" name="attr_is_sel" value='0' checked='checked' />单选
+                <input type="radio" name="attr_is_sel" value='1' />多选
+                </td></tr>   
+            <tr><td>录入方式</td>
+                <td><input type="radio" name="attr_write_mod" value='0'  checked='checked' />手工
+                <input type="radio" name="attr_write_mod" value='1'/>从以下信息选取
+                </td></tr>
+            <tr><td>可选信息值</td>
+                <td><textarea name="attr_sel_opt"></textarea>
+                多个值中间使用逗号,分隔
+                </td></tr>
+            <tr><td colspan='100'><input type='submit' value="添加"></td></tr>
+        </table>
+    </form>
+</div>

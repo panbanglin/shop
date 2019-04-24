@@ -1,0 +1,8 @@
+[ 2019-04-23T22:48:30+08:00 ] 218.18.89.111 /shop/index.php/Back/Admin/checkCode.html?code=v7sh
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000554s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000308s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000353s ]
+

@@ -1,0 +1,8 @@
+[ 2019-04-23T22:47:00+08:00 ] 218.18.89.111 /shop/index.php/Home/User/checkCode.html?code=une3
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000505s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000308s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000350s ]
+

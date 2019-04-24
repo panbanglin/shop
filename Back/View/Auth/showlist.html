@@ -1,0 +1,24 @@
+<div style="font-size: 13px; margin: 10px 5px;">
+    <table class="table_a" border="1" width="100%">
+        <tbody><tr style="font-weight: bold;">
+                <td>序号</td><td>名称</td>
+                <td>上级id</td><td>控制器名称</td><td>操作方法</td>
+                <td>全路径</td><td>等级</td>
+                <td align="center" colspan='2'>操作</td>
+            </tr>
+            <foreach name='info' item='v'>
+            <tr id="product_{$v.goods_id}">
+                <td>{$v.auth_id}</td>
+                <td><?php echo str_repeat('--/',$v['auth_level']); ?>{$v.auth_name}</td>
+                <td>{$v.auth_pid}</td>
+                <td>{$v.auth_c}</td>
+                <td>{$v.auth_a}</td>
+                <td>{$v.auth_path}</td>
+                <td>{$v.auth_level}</td>
+                <td><a href="" >修改</a></td>
+                <td><a href="javascript:;" >删除</a></td>
+            </tr>
+            </foreach>
+        </tbody>
+    </table>
+</div>

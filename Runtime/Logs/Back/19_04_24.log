@@ -1,0 +1,4 @@
+[ 2019-04-24T09:09:03+08:00 ] 101.132.100.6 /shop/index.php/back/index/left.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') and auth_level=0 )' at line 1
+ [ SQL语句 ] : SELECT * FROM `php41_auth` WHERE ( auth_id in () and auth_level=0 ) 
+

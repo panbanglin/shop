@@ -1,0 +1,65 @@
+<div style="font-size: 13px; margin: 10px 5px;">
+    按商品类型显示:
+    <select id="type_id" onchange="show_attr()">
+        <foreach name="typeinfo" item='v'>
+        <equal name='Think.get.type_id' value="$v['type_id']">
+            <option value="{$v.type_id}" selected="selected">
+        <else />
+            <option value="{$v.type_id}">
+        </equal>
+        {$v.type_name}</option>
+        </foreach>
+    </select>
+
+    <script type="text/javascript">
+    function show_attr(){
+        var type_id = $('#type_id option:selected').val(); //被选中类型的id值
+        //利用ajax去服务器端获得“选中类型”对应的属性信息
+        $.ajax({
+            url:"{:U('Attribute/getInfoByType')}",
+            data:{'type_id':type_id},
+            dataType:'json',
+            type:'get',
+            success:function(msg){
+                //遍历msg中的每个属性信息并显示
+                var s = "";
+                $.each(msg,function(k,v){
+                    s+= "<tr>";
+                    s+= "<td>"+v.attr_id+"</td>";
+                    s+= "<td>"+v.attr_name+"</td>";
+                    s+= "<td>"+v.type_id+"</td>";
+                    s+= "<td>"+v.attr_is_sel+"</td>";
+                    s+= "<td>"+v.attr_write_mod+"</td>";
+                    s+= "<td>"+v.attr_sel_opt+"</td>";
+                    s+= "</tr>";
+                });
+                $('.table_a tr:not(:first)').remove();
+                $('.table_a').append(s);
+            }
+        });
+    }
+    </script>
+
+    <table class="table_a" border="1" width="100%">
+        <tbody>
+            <tr style="font-weight: bold;">
+                <td>序号</td><td>名称</td>
+                <td>类型</td><td>选取方式</td>
+                <td>录入方式</td><td>供选取的值</td>
+                <td align="center" colspan='2'>操作</td>
+            </tr>
+            <foreach name='info' item='v'>
+            <tr>
+                <td>{$v.attr_id}</td>
+                <td>{$v.attr_name}</td>
+                <td>{$v.type_id}</td>
+                <td>{$v.attr_is_sel}</td>
+                <td>{$v.attr_write_mod}</td>
+                <td>{$v.attr_sel_opt}</td>
+                <td><a href="" >修改</a></td>
+                <td><a href="javascript:;" >删除</a></td>
+            </tr>
+            </foreach>
+        </tbody>
+    </table>
+</div>
